@@ -1,0 +1,229 @@
+ClrHome
+Output(1,1,"=HERMES OPTIMUS=")
+Output(2,3,"Press ENTER")
+Pause 
+Lbl A
+ClrHome
+Output(1,1,"NEURAL CLASSIFIER")
+Menu("SELECT OPTION","CLASSIFY",B,"ABOUT",F,"EXIT",G)
+Lbl B
+ClrHome
+Disp "WORD CLASSIFIER"
+Disp "PRESS ON TO EXIT"
+Lbl H
+Disp " "
+Disp "WORD? (4 CHAR)"
+Input ">",Str1
+ClrHome
+If length(Str1)=0
+Goto A
+Output(1,1,"Processing...")
+Output(2,1,"[          ]")
+0->W
+
+{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0}->L1
+Str1->Str4
+
+If length(Str1)>0
+Then
+For(I,1,length(Str1))
+inString("ABCDEFGHIJKLMNOPQRSTUVWXYZ",sub(Str1,I,1))->J
+If J>0
+Then
+1->L1(4+J)
+End
+End
+End
+0->K
+{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0}->L6
+For(I,1,26)
+If L1(4+I)!=0
+Then
+If K<4
+Then
+K+1->K
+I/26->L6(K)
+End
+End
+End
+For(I,1,4)
+L6(I)->L1(I)
+End
+Output(2,2,"[")
+Output(2,2,"###")
+Output(2,12,"]")
+
+DelVar L2
+{0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0}->L2
+For(Q,1,50)
+0
+For(J,1,30)
+Ans+[I](Q,J)*L1(J)
+End
+Ans->L2(Q)
+W+1->W
+End
+Output(2,2,"[")
+For(X,1,int(W/16))
+Output(2,1+X,"#")
+End
+Output(2,12,"]")
+
+L2+L4->L2
+
+For(I,1,50)
+If L2(I)>10
+Then
+0.9999
+Else
+If L2(I)<~10
+Then
+0.0001
+Else
+1/(1+e^(~L2(I)))
+End
+End
+Ans->L2(I)
+W+1->W
+End
+Output(2,2,"[")
+For(X,1,int(W/16))
+Output(2,1+X,"#")
+End
+Output(2,12,"]")
+
+DelVar L3
+{0,0,0,0,0,0,0,0,0,0,0,0}->L3
+For(Q,1,12)
+0
+For(J,1,50)
+Ans+[J](Q,J)*L2(J)
+End
+Ans->L3(Q)
+W+1->W
+End
+Output(2,2,"[")
+For(X,1,int(W/16))
+Output(2,1+X,"#")
+End
+Output(2,12,"]")
+
+L3+L5->L3
+
+For(I,1,12)
+If L3(I)>10
+Then
+0.9999
+Else
+If L3(I)<~10
+Then
+0.0001
+Else
+1/(1+e^(~L3(I)))
+End
+End
+Ans->L3(I)
+W+1->W
+End
+Output(2,2,"[")
+For(X,1,int(W/16))
+Output(2,1+X,"#")
+End
+Output(2,12,"]")
+
+DelVar |LL7
+{0,0,0,0,0,0,0,0,0,0,0,0}->|LL7
+For(I,1,12)
+If L3(I)>0.5
+Then
+1->|LL7(I)
+Else
+0->|LL7(I)
+End
+End
+
+99999->M
+0->T
+For(C,0,23)
+0->D
+For(B,1,12)
+int(2*fPart(int(C/2^(B-1))/2))->N
+If N!=|LL7(B)
+Then
+D+1->D
+End
+End
+If D<M
+Then
+D->M
+C->T
+End
+End
+ClrHome
+"????"->Str3
+If T=0:"BACK"
+If T=1:"DARK"
+If T=2:"EACH"
+If T=3:"FROM"
+If T=4:"JUST"
+If T=5:"BEEN"
+If T=6:"GOOD"
+If T=7:"MUCH"
+If T=8:"SOME"
+If T=9:"TIME"
+If T=10:"LIKE"
+If T=11:"ONLY"
+If T=12:"WORK"
+If T=13:"WAVE"
+If T=14:"ZERO"
+If T=15:"ZONE"
+If T=16:"VAIN"
+If T=17:"VAST"
+If T=18:"QUIZ"
+If T=19:"HELP"
+If T=20:"FIND"
+If T=21:"PLUS"
+If T=22:"YAWN"
+If T=23:"STOP"
+If T<0 or T>23:"????"
+Ans->Str3
+sum(L3)->U
+max(L3)->V
+0->P
+If U!=0
+Then
+int(V/U*100)->P
+End
+Output(1,1,"INPUT:")
+Output(1,8,Str4)
+Output(2,1,"RESULT:")
+Output(2,9,Str3)
+Output(3,1,"CONFIDENCE:")
+Output(3,13,P)
+Output(3,15,"%")
+Output(4,1,"[")
+For(X,1,min(int(P/7),14))
+Output(4,1+X,"#")
+End
+Output(4,16,"]")
+Output(5,1,"Press ENTER key")
+Pause 
+ClrHome
+Goto H
+Lbl F
+ClrDraw
+Text(0,19,"=HERMES OPTIMUS=")
+Text(16,0,"Version 24.0")
+Text(24,0,"- Feedforward neural net")
+Text(32,0,"- 30-50-12 architecture")
+Text(40,0,"- 24-word dictionary")
+Text(48,0,"- Hybrid encoding")
+Text(56,0,"- Binary pattern matching")
+Text(64,0,"Press ENTER key for menu")
+Pause 
+ClrDraw
+ClrHome
+Goto A
+Lbl G
+ClrHome
+Stop
