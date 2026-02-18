@@ -213,13 +213,13 @@ Goto H
 Lbl F
 ClrDraw
 Text(0,19,"=HERMES OPTIMUS=")
-Text(16,0,"Version 24.0")
-Text(24,0,"- Feedforward neural net")
-Text(32,0,"- 30-50-12 architecture")
-Text(40,0,"- 24-word dictionary")
-Text(48,0,"- Hybrid encoding")
-Text(56,0,"- Binary pattern matching")
-Text(64,0,"Press ENTER key for menu")
+Text(8,0,"Version 24.0")
+Text(16,0,"- Feedforward neural net")
+Text(24,0,"- 30-50-12 architecture")
+Text(32,0,"- 24-word dictionary")
+Text(40,0,"- Hybrid encoding")
+Text(48,0,"- Binary pattern matching")
+Text(56,0,"Press ENTER key for menu")
 Pause 
 ClrDraw
 ClrHome
