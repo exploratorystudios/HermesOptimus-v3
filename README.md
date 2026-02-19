@@ -118,7 +118,7 @@ Outputs (default names):
 ## TI Deployment Workflow (applies to both V2 and V3)
 1. Train or load + export verbose weights.
 2. Convert verbose weights to CSV with `weights_to_csv.py`.
-3. Convert CSV into TI files (`[I].8xm`, `[J].8xm`, `L4.8xl`, `L5.8xl`) via SourceCoder/TokenIDE.
+3. Convert CSV into TI files (`[I].8xm`, `[J].8xm`, `L4.8xl`, `L5.8xl`) via SourceCoder/Cemetech Tools.
 4. Transfer TI program + data files via TI Connect CE.
 
 ## Why V2 and V3 differ
