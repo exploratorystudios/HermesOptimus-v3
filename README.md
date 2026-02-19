@@ -42,9 +42,6 @@ This gives:
   - `BACK, DARK, EACH, FROM, JUST, BEEN, GOOD, MUCH, SOME, TIME, LIKE, ONLY`
   - `WORK, WAVE, ZERO, ZONE, VAIN, VAST, QUIZ, HELP, FIND, PLUS, YAWN, STOP`
 
-### Experimental / non-production variants
-- `train_24word_positional.py`: 24-word binary output with full raw positional input for slots 0-3.
-
 ## Repository Components
 
 ### TI artifacts
