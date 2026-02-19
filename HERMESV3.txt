@@ -212,6 +212,7 @@ ClrHome
 Goto H
 Lbl F
 ClrDraw
+AxesOff
 Text(0,19,"=HERMES OPTIMUS=")
 Text(8,0,"Version 24.0")
 Text(16,0,"- Feedforward neural net")
@@ -222,6 +223,7 @@ Text(48,0,"- Binary pattern matching")
 Text(56,0,"Press ENTER key for menu")
 Pause 
 ClrDraw
+AxesOn
 ClrHome
 Goto A
 Lbl G
