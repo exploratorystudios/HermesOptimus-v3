@@ -34,7 +34,6 @@ V3 does not use direct one-neuron-per-word output. Instead:
 
 ### Visualization
 - `visualize_network_24word_binary.py`: V3 static visualization suite (7 PNG outputs)
-- `interactive_explorer_24word.py`: local interactive explorer for live inspection
 
 ### Export and TI deployment
 - `weights_to_csv.py`: converts verbose weight dump to CSV matrix/list payloads
@@ -80,18 +79,6 @@ Generates:
 - `binary_codebook_24word.png`
 - `weight_distribution_24word.png`
 - `weight_heatmaps_24word.png`
-
-### Interactive explorer
-```bash
-venv/bin/python interactive_explorer_24word.py nn_weights_24word.npz
-```
-
-Interactive explorer features:
-- live word input
-- perturbation buttons (`Scramble`, `Adj Typo`, `Drop`, `Multi-Adj`)
-- 30-feature encoding chart
-- raw vs rounded 12-bit outputs
-- top decode candidates ranked by Hamming and L1 distance
 
 ## TI Deployment Workflow (V3)
 1. Train or load V3 model and export verbose weights.
