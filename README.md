@@ -90,11 +90,3 @@ Generates:
 V3 is typically reported with two views:
 - Stress-suite accuracy: full adversarial perturbation mix.
 - Realistic typo/transposition accuracy: filtered practical error patterns.
-
-Keep both labels explicit when sharing results.
-
-## Essential Folder
-If you want a minimal portable V3 bundle, use files in:
-- `essential/`
-
-This folder contains the V3 trainer, V3 visualizers, export tool, V3 weights, TI artifacts, and generated V3 PNGs.
